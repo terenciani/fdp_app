@@ -4,16 +4,21 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import java.nio.BufferUnderflowException;
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity {
 
-    private static  String TAG = "MainActivity";
+    private static String TAG = "MainActivity";
+
+    @Bind(R.id.ed1)
+    EditText ed1;
+
+    @Bind(R.id.ed2)
+    EditText ed2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,74 +27,61 @@ public class MainActivity extends Activity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        final EditText ed1 = (EditText) findViewById(R.id.ed1);
-        final EditText ed2 = (EditText) findViewById(R.id.ed2);
-
-
-        Button soma =  (Button) findViewById(R.id.btSoma);
-        soma.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-
-                Double numero1 = Double.parseDouble(ed1.getText().toString());
-                Double numero2 = Double.parseDouble(ed2.getText().toString());
-
-                Double soma = numero1 + numero2;
-
-                Bundle bundle = new Bundle();
-                bundle.putDouble("calculo", soma);
-
-                Intent irParaResultado = new Intent(MainActivity.this, ResultadoActivity.class);
-
-                irParaResultado.putExtras(bundle);
-
-                startActivity(irParaResultado, bundle);
-            }
-        });
-
-        Button sub =  (Button) findViewById(R.id.btSub);
-        sub.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Double numero1 = Double.parseDouble(ed1.getText().toString());
-                Double numero2 = Double.parseDouble(ed2.getText().toString());
-
-                Double sub = numero1 - numero2;
-
-            }
-        });
-
-        Button div =  (Button) findViewById(R.id.btDiv);
-        div.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Double numero1 = Double.parseDouble(ed1.getText().toString());
-                Double numero2 = Double.parseDouble(ed2.getText().toString());
-
-                Double div = numero1 / numero2;
-
-            }
-        });
-
-        Button mult =  (Button) findViewById(R.id.btMult);
-        mult.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Double numero1 = Double.parseDouble(ed1.getText().toString());
-                Double numero2 = Double.parseDouble(ed2.getText().toString());
-
-                Double mult = numero1 * numero2;
-
-
-            }
-        });
     }
+
+    @OnClick(R.id.btSoma)
+    public void somar() {
+        Double numero1 = Double.parseDouble(ed1.getText().toString());
+        Double numero2 = Double.parseDouble(ed2.getText().toString());
+
+        Double soma = numero1 + numero2;
+
+        mostrarResultado(soma);
+    }
+
+    @OnClick(R.id.btSub)
+    public void subtrair() {
+        Double numero1 = Double.parseDouble(ed1.getText().toString());
+        Double numero2 = Double.parseDouble(ed2.getText().toString());
+
+        Double sub = numero1 - numero2;
+
+        mostrarResultado(sub);
+
+    }
+
+    @OnClick(R.id.btDiv)
+    public void dividir() {
+        Double numero1 = Double.parseDouble(ed1.getText().toString());
+        Double numero2 = Double.parseDouble(ed2.getText().toString());
+
+        Double div = numero1 / numero2;
+
+        mostrarResultado(div);
+    }
+
+
+    @OnClick(R.id.btMult)
+    public void multiplicar() {
+        Double numero1 = Double.parseDouble(ed1.getText().toString());
+        Double numero2 = Double.parseDouble(ed2.getText().toString());
+
+        Double mult = numero1 * numero2;
+
+        mostrarResultado(mult);
+    }
+
+    public void mostrarResultado(Double resultado) {
+        Bundle bundle = new Bundle();
+        bundle.putDouble("calculo", resultado);
+        Intent irParaResultado = new Intent(MainActivity.this, ResultadoActivity.class);
+        irParaResultado.putExtras(bundle);
+        startActivity(irParaResultado, bundle);
+
+    }
+
 
     @Override
     protected void onStart() {

@@ -8,4 +8,8 @@
     <string name="multiplicar">*</string>
     <string name="resultado">Resultado</string>
     <string name="fechar">Fechar</string>
+    <string name="nome">Nome:</string>
+    <string name="salvar">Salvar</string>
+    <string name="Email">Email</string>
+    <string name="telefone">Telefone</string>
 </resources>

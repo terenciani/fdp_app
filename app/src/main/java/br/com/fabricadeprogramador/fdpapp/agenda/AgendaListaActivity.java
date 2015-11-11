@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import br.com.fabricadeprogramador.fdpapp.R;
+import br.com.fabricadeprogramador.fdpapp.agenda.adapter.PessoaListAdapter;
 import br.com.fabricadeprogramador.fdpapp.model.Pessoa;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -56,8 +57,8 @@ public class AgendaListaActivity extends AppCompatActivity {
 
         GerenciadorAgenda.adicionar(pessoa);
 
-
-        ArrayAdapter<Pessoa> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, GerenciadorAgenda.getPessoas());
+        PessoaListAdapter adapter = new PessoaListAdapter (this, GerenciadorAgenda.getPessoas());
+        //ArrayAdapter<Pessoa> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, GerenciadorAgenda.getPessoas());
 
         lista.setAdapter(adapter);
     }

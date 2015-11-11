@@ -35,7 +35,7 @@ public class AgendaActivity extends AppCompatActivity {
         Intent irParaAgendaLista = new Intent(AgendaActivity.this, AgendaListaActivity.class);
         Bundle bundle = new Bundle();
 
-        Pessoa pessoa = new Pessoa(edtNome.getText().toString(), edtEmail.getText().toString(), edtTelefone.getText().toString());
+        Pessoa pessoa = new Pessoa(edtNome.getText().toString(), edtEmail.getText().toString(), edtTelefone.getText().toString(), R.drawable.logo_ufms);
 
         bundle.putSerializable("pessoa", pessoa);
 

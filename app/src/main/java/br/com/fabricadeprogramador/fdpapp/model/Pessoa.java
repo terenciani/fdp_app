@@ -3,24 +3,29 @@ package br.com.fabricadeprogramador.fdpapp.model;
 import java.io.Serializable;
 
 /**
- * Created by terenciani on 05/11/15.
+ * Created by Marcelo Terenciani on 05/11/15.
  */
 public class Pessoa implements Serializable {
 
+    private Long id;
     private String nome;
     private String email;
     private String telefone;
+    private int imagem;
 
 
-    public  Pessoa (){
-
-    }
-
-    public Pessoa (String nome, String email, String telefone){
+    public Pessoa (String nome, String email, String telefone, int imagem){
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
+        this.imagem = imagem;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+
 
     public String getNome() {
         return nome;
@@ -34,7 +39,14 @@ public class Pessoa implements Serializable {
         return telefone;
     }
 
-    public void setNome(String nome) {
+    public int getImagem() {
+        return imagem;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -44,6 +56,10 @@ public class Pessoa implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public void setImagem(int imagem) {
+        this.imagem = imagem;
     }
 
     @Override

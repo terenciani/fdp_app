@@ -1,5 +1,13 @@
 apply plugin: 'com.android.application'
 
+repositories {
+    mavenCentral()
+
+    maven {
+        url 'http://lorenzo.villani.me/android-cropimage/'
+    }
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -25,4 +33,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'me.villani.lorenzo.android:android-cropimage:1.1.1'
 }

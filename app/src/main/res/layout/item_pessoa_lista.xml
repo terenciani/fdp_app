@@ -4,17 +4,23 @@
     android:layout_height="match_parent">
 
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:id="@+id/pessoa_imagem"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/pessoa_nome"/>
-    <CheckBox
-        android:layout_width="5dp"
-        android:layout_height="5dp" />
+
+
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/pessoa_imagem"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pessoa_nome"/>
+        <CheckBox
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:id="@+id/pessoa_ativa"/>
+
 
 </LinearLayout>

@@ -1,5 +1,7 @@
 package br.com.fabricadeprogramador.fdpapp.model;
 
+import android.graphics.Bitmap;
+
 import java.io.Serializable;
 
 /**
@@ -12,6 +14,7 @@ public class Pessoa implements Serializable {
     private String email;
     private String telefone;
     private int imagem;
+    private Boolean ativa;
 
 
     public Pessoa (String nome, String email, String telefone, int imagem){
@@ -19,6 +22,7 @@ public class Pessoa implements Serializable {
         this.email = email;
         this.telefone = telefone;
         this.imagem = imagem;
+        this.ativa  = true;
     }
 
     public Long getId() {
@@ -31,36 +35,21 @@ public class Pessoa implements Serializable {
         return nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public String getTelefone() {
-        return telefone;
-    }
 
-    public int getImagem() {
+
+
+  public int getImagem() {
         return imagem;
+    }      public Boolean getAtiva() {
+        return ativa;
     }
-
 
     public void setId(Long id) {
         this.id = id;
-    }    public void setNome(String nome) {
-        this.nome = nome;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public void setImagem(int imagem) {
-        this.imagem = imagem;
-    }
 
     @Override
     public String toString() {
